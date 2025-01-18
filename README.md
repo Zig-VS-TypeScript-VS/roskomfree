@@ -38,7 +38,7 @@
 
 ## 2. Установка программы
 ### 2.1. Скачайте и запустите RoskomFree
-Скачать по ссылке: https://github.com/censorliber/roskomfree/archive/refs/heads/main.zip
+Скачать по ссылке: [пока недоступно]
 <br>
 Для запуска окна консоли и отладки запустите - `start.bat`
 <br>
