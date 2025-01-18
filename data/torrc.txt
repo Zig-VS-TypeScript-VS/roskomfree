@@ -1,0 +1,67 @@
+# Tor configuration file
+DataDirectory tmp
+#ClientOnionAuthDir data
+GeoIPFile data\geoip.txt
+GeoIPv6File data\geoip6.txt
+AutomapHostsOnResolve 1
+#HardwareAccel 1
+MaxClientCircuitsPending 128
+UseBridges 1
+SafeLogging 0
+Log notice file data\notice.log
+Log notice stdout
+TruncateLogFile 1
+
+MiddleNodes 94.130.89.176, 5.9.56.249, 195.201.241.87, 144.76.200.80, 144.76.86.5, 136.243.3.194, 138.201.58.21, 138.201.51.181
+#MiddleNodesList 83.77.218.29, 185.220.100.240, 145.239.41.102, 94.23.172.32
+#Some pretty good middles in case you need a replacement.
+
+ExitNodes 185.40.4.95/26
+#The default IP range. Stable and at least middle speed, not blocked by YouTube.
+
+#ExitNodes EE2A621042994B29452C12FF3B6F62D9E957758C,D95A2DF17815BA92E4EA49D2D46EBAEB1DCEBABC,0AE076CD2A4201BF2D90C325211A10D2C8DD6CE9,008EAE223B110C8EDEE20D06FB0DD4C43E3E0142,00DA4A3852EA5EF6841B8B4372DB0EFD3AB0BE92,05C32C5EE14454E0C4CD81DAE0F3DC32F729DA4B,8DB706C9B7ABA89F08FCE919DE18DAC63266EC8D,9D5A7A81BC6194555CE751F75FB196E4A3982CC5,1D6AB1F4926714B0A0D96109CB9F68D588695691,3C89C80E2699FB6358BBB64FDC9547AFCB5C03F7,6BCB964AB74E23F8986BDA905697D3A6BE08AF28,9973E1E9730A58FDBA9E112D2B3342D2C0D921B5,50AA9FEA6A3A609686276C4CF0C2A1AFB2ECCA1B,8E38B11E849336D62AB6264FBAE9B03C70F07863,3B432139835ADDA359F09AC63D65A86360EFD409,939126EA4D25CB212A79746C133194F8A24C435B
+#ExitNodes {ru} {gb} {fr} {se} {fi}
+StrictNodes 1
+#Use this if you want stable 4K 60 YouTube videos and faster speed (please use it only if necessary, the IP can be blocked by YouTube if mass used). Don't forget to add "#" to the default ExitNodes string.
+#Find out the bandwidth of any bridge, middle or exit node at https://metrics.torproject.org/rs.html#search.
+#https://gist.github.com/0x07dc/c2b36774aa5bc8107193c900008bfeb1
+#https://sccmrookie.blogspot.com/2016/03/tor-country-codes-list.html
+
+#ExitNodesList 8DB706C9B7ABA89F08FCE919DE18DAC63266EC8D (DE), 3EBF6E6034F6844AC80990A2AE46A3B5B674D3DA (LU), B3DA6D0F4C5C67E1AE8E4DF20C832622A3FE2B76 (HR)
+#The list of interesting and not blocked exits to be used later as a 4K 60 optimal node. Not all of them may be working or working equally good.
+#You can check the status of IP (blocked or not blocked) via access to certain videos, I usually use this one https://www.youtube.com/watch?v=O_ItSLCZWb0.
+#There will be "video unavaibale" error if blocked node is used, you can try this exit 0406DF11FC1C04CAF8B771CA2B9BA7C473E9DE4E to make sure. Other videos will play normally.
+ClientTransportPlugin meek_lite,obfs2,obfs3,obfs4,scramblesuit,webtunnel exec pluggable_transports\lyrebird
+ClientTransportPlugin snowflake exec pluggable_transports\snowflake-client
+ClientTransportPlugin conjure exec pluggable_transports\conjure-client -registerURL https://registration.refraction.network/api
+CookieAuthentication 0
+ControlPort 9876
+SOCKSPort 8829
+HTTPTunnelPort 8830
+TrackHostExits .
+TrackHostExitsExpire 99999
+MaxCircuitDirtiness 9999
+EnforceDistinctSubnets 0
+LearnCircuitBuildTimeout 0
+CircuitBuildTimeout 15
+NewCircuitPeriod 9999
+
+Bridge webtunnel [2001:db8:1fc0:eebe:5e6e:d6ee:f53e:6889]:443 4A3859C089DF40A4FFADC10A79DFEBE4F8272535 url=https://verry.org/K2A2utQIMou4Ia2WjVseyDjV ver=0.0.1
+Bridge webtunnel [2001:db8:77cb:5ce6:9995:7466:7ffa:b3f8]:443 770EA6412C8D3997ABFFF7173A3E53F1D3660167 url=https://shallotfarm.org/jcHgyp7m90iQr9QaVSprq1wP ver=0.0.1
+#Bridge webtunnel [2001:db8:b469:7b74:f9fd:51e9:e5df:e350]:443 DD44F54966789F24B96A65986993F62A1E3728FC url=https://tox02.ky0uraku.xyz/oRvjLEFZwsFook1LeWIh2KLqrBbe ver=0.0.1
+#Bridge webtunnel [2001:db8:a8b5:9d82:9ae6:354f:671:e5da]:443 E3AE862BBB49EA5FACF4FDF09C8F1FE0D6F3CE4B url=https://d.img-cdn.net/mExFXMqeh1PcoDRRyz/ ver=0.0.1
+#Bridge webtunnel [2001:db8:5267:3758:c22e:88ba:7fc4:fa7f]:443 2FDE90A29171751BD964325FC002D17E739057F6 url=https://gateway.005184.xyz/QY6NCS5qYfcGo9c6Srfh5BGMjecCKj936BZRkyu3zo8pNB53 ver=0.0.1
+#Bridge webtunnel [2001:db8:8b15:5361:79c0:7bbf:dd0e:5fc3]:443 F44A64FCD676CE7845A88DE19B24EBCF0863AC34 url=https://nextsphere.space/liiloz3ol4Mah3GohGae
+#Bridge webtunnel [2001:db8:6281:baa0:afc0:9579:b303:59a7]:443 377CF6FCBFD2E57D0775EA6F2E8D3EF0D8CDD02F url=https://cryptomeanscryptography.club/TfDS3X50Rf3dR5x3Q3vLS25o ver=0.0.1
+#Bridge webtunnel [2001:db8:8d54:8d31:43e8:80aa:bca:24ca]:443 447BBCEB9662D3FA3133199BF47A3D4CAB2D627C url=https://gitwizardry.pw/ThieLe5Ein0luofief7o
+#Bridge webtunnel [2001:db8:5985:711a:a60e:61a0:1260:b42e]:443 58DA67BD879E9239FCD4A590E25118BB2118CB3C url=https://fdmf.ch/QCjqMFJumKjWgB7BFaOc04dN
+#Bridge webtunnel [2001:db8:5430:b234:d4fe:b114:a74d:8017]:443 48DBA8F55E84CC481B9B50FA7DB5521DCC535134 url=https://vps.bahena.be/FmmDTW1r12UmFmMQ96AXb61N
+#Bridge webtunnel [2001:db8:20ed:5dfb:5780:5a61:2aa8:1fb3]:443 132B0C73579F5EAF5640B3B759289A6DF6E2BB9F url=https://skelleftea.frostbay.org ver=0.0.1
+#Bridge webtunnel [2001:db8:259c:faa6:24a9:cce0:c60f:4642]:443 23958FC105E58061AFD2DECC61D363F28AB36490 url=https://pod02.oneclickhost.eu/lzcHh4sbo8bOTwkc4IwkSxNS ver=0.0.1
+#Bridge webtunnel [2001:db8:db1c:7ed2:2099:a9ba:677a:1708]:443 44285E8B72F490B9D884BCAF67B1297FB31D7B1B url=https://pacifico-dev.arrecife.link/1arHJqF7FetebSZ811eBwyRq
+#Bridge webtunnel [2001:db8:a634:bf27:a89e:4:2de:cb6]:443 8943BF53C9561C75A7302ED59575EF71E2B26562 url=https://fast.heelsn.eu/MsCfO3oc0rCsRkzDbZw8G8bT
+
+VanguardsLiteEnabled 0
+ConnectionPadding 0
+CircuitPadding 0
+ConfluxEnabled 0
