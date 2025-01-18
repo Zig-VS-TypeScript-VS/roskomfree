@@ -122,4 +122,4 @@ news.google.com +proxy
 
 ![image](https://github.com/user-attachments/assets/c57837ca-9e40-4d0b-a90c-1f544493a6f1)
 
-Лругие сайты добавляются аналогично
+Другие сайты добавляются аналогично
