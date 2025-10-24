@@ -40,7 +40,11 @@
 ### 2.1. Скачайте и запустите RoskomFree
 Скачать по ссылке: [пока недоступно]
 <br>
-Для запуска окна консоли и отладки запустите - `start.bat`
+
+1. Скачайте [Roskomfree](https://github.com/youtubediscord/roskomfree/archive/refs/heads/main.zip) и распакуйте его.
+2. Скачайте "[Tor Expert Bundle](https://www.torproject.org/download/tor/)", распакуйте его и скопируйте в папку Roskomfree.
+3. Нажмите `start.bat`
+4. Настройки Windows >>> Сеть и Интернет >>> Прокси >>> `127.0.0.1` `8830`
 <br>
 Для запуска в фоне запустите - `пока недоступно`
 
@@ -69,6 +73,7 @@
 [SwitchyOmega Conditions]
 @with result
 
+*.google.* +proxy
 *.instagram.com +proxy
 scontent-hel3-1.cdninstagram.com +proxy
 *.cdninstagram.com +proxy
