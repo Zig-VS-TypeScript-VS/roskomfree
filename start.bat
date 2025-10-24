@@ -1,1 +1,1 @@
-"%cd%\data\tor.exe" -f "%cd%\data\torrc.txt"
+"%cd%\tor\tor.exe" -f "%cd%\data\torrc.txt"
